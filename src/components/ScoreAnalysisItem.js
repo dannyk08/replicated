@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './ScoreAnalysisItem.css';
-import { scoreMap } from './ScoreAnalysis';
+import { scoreMap } from './../utils/scoreMapping';
 
 export default class ScoreAnalysisItem extends React.Component {
   render() {
