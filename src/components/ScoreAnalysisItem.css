@@ -1,0 +1,14 @@
+.ScoreGraphItem {
+  padding: 1rem;
+  margin: 1rem;
+  max-width: calc(24% - 2rem);
+  display: inline-block;
+  width: 100%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.ScoreGraphItem:hover {
+  border-color: lightblue;
+  background: whitesmoke;
+}
