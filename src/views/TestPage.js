@@ -53,10 +53,44 @@ export default class TestPage extends React.Component {
   }
 }
 
-function Assessment() {
-  console.log({ preparedAssessment });
-  const currentQuestion = preparedAssessment.questions[0]
-  return <CurrentQuestion currentQuestion={currentQuestion} />
+
+
+class Assessment extends React.Component {
+  constructor(props) {
+    super(props)
+    this.submitCurrentChoice = this.submitCurrentChoice.bind(this)
+    this.handleSelectedChoice = this.handleSelectedChoice.bind(this)
+    this.state = {
+      currentQuestionIndex: 0,
+      currentQuestion: preparedAssessment.questions[0],
+      selectedChoice: null
+    }
+  }
+
+  handleSelectedChoice(e) {
+    this.setState({
+      selectedChoice: e.target.value
+    })
+  }
+
+  submitCurrentChoice() {
+    if (preparedAssessment.questions[this.state.currentQuestionIndex + 1]) {
+      const currentQuestionIndex = this.state.currentQuestionIndex + 1
+      this.setState({
+        currentQuestionIndex,
+        currentQuestion: preparedAssessment.questions[currentQuestionIndex]
+      })
+    }
+  }
+
+  render() {
+    return <CurrentQuestion
+      handleSelectedChoice={this.handleSelectedChoice}
+      selectedChoice={this.state.selectedChoice}
+      currentQuestion={this.state.currentQuestion}
+      submitCurrentChoice={this.submitCurrentChoice}
+    />
+  }
 }
 
 
