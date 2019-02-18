@@ -8,7 +8,7 @@ import { CompletedSurvey } from './views';
 import TestPage from './views/TestPage';
 
 const client = new ApolloClient({
-  uri: 'https://assessment.staging.enterprisegrade.io/graphiql'
+  uri: 'https://assessment.staging.enterprisegrade.io/graphql'
 })
 
 class App extends Component {
