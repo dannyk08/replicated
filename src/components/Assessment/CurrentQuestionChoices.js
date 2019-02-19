@@ -3,7 +3,7 @@ import React from 'react';
 const CurrentQuestionChoices = ({
   choices,
   handleChoice,
-  selectedChoice
+  selectedChoiceId
 }) => {
   return (
     <div className="choices">
@@ -13,11 +13,12 @@ const CurrentQuestionChoices = ({
             <input
               type="radio"
               name={c.id}
-              checked={selectedChoice === c.id}
+              id={c.id}
+              checked={selectedChoiceId === c.id}
               onChange={handleChoice}
               value={c.id}
             />
-            <label id={c.id}>{c.text}</label>
+            <label htmlFor={c.id}>{c.text}</label>
           </div>
         })
       }

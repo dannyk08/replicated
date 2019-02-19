@@ -35,7 +35,7 @@ export default class Assessment extends React.Component {
         <QueryAssessment
           id={prepareAssessment}
           handleSelectedChoice={this.handleSelectedChoice}
-          selectedChoice={this.state.selectedChoice}
+          selectedChoiceId={this.state.selectedChoice}
           currentQuestionIndex={this.state.currentQuestionIndex}
           submitCurrentChoice={this.submitCurrentChoice}
         />
@@ -53,7 +53,7 @@ export default class Assessment extends React.Component {
             return <QueryAssessment
               id={prepareAssessment}
               handleSelectedChoice={this.handleSelectedChoice}
-              selectedChoice={this.state.selectedChoice}
+              selectedChoiceId={this.state.selectedChoice}
               currentQuestionIndex={this.state.currentQuestionIndex}
               submitCurrentChoice={this.submitCurrentChoice}
             />

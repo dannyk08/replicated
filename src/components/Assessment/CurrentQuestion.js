@@ -5,7 +5,8 @@ const CurrentQuestion = ({
   currentQuestion,
   submitCurrentChoice,
   handleSelectedChoice,
-  selectedChoice
+  selectedChoiceId,
+  buttonDisabled,
 }) => {
   return (
     <div>
@@ -15,9 +16,12 @@ const CurrentQuestion = ({
       <CurrentQuestionChoices
         choices={currentQuestion.choices}
         handleChoice={handleSelectedChoice}
-        selectedChoice={selectedChoice}
+        selectedChoiceId={selectedChoiceId}
       />
-      <button onClick={submitCurrentChoice}>submit</button>
+      <button
+        disabled={buttonDisabled}
+        onClick={submitCurrentChoice}
+      >Next</button>
     </div>
   )
 }
