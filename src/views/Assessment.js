@@ -1,14 +1,9 @@
 import React from 'react';
-import { Query, Mutation, ApolloConsumer } from 'react-apollo';
+import { Mutation } from 'react-apollo';
 
-import { CurrentQuestion, PrepareAssessment } from '../components';
-import { GET_ASSESSMENT_QUERY } from './../utils/queries';
+import { PrepareAssessment, QueryAssessment } from '../components';
 import { PREPARE_ASSESSMENT_MUTATION } from './../utils/mutations';
-
-// TODO: remove mockdata
-import { preparedAssessment } from '../utils/mockData';
-// TODO: remove static id
-const id = "8s-lJ81i8FATjivlANvIRZz8h1tGGBoC"
+import { getCookie, setCookie } from '../helpers/cookies';
 
 export default class Assessment extends React.Component {
   constructor(props) {
@@ -33,32 +28,38 @@ export default class Assessment extends React.Component {
   }
 
   render() {
+    let { prepareAssessment = null } = getCookie('prepareAssessment')
+
+    if (prepareAssessment) {
+      return (
+        <QueryAssessment
+          id={prepareAssessment}
+          handleSelectedChoice={this.handleSelectedChoice}
+          selectedChoice={this.state.selectedChoice}
+          currentQuestionIndex={this.state.currentQuestionIndex}
+          submitCurrentChoice={this.submitCurrentChoice}
+        />
+      )
+    }
+
     return (
-      <Mutation mutation={PREPARE_ASSESSMENT_MUTATION} variables={{ templateId: "1" }}>
+      <Mutation mutation={PREPARE_ASSESSMENT_MUTATION} variables={{ templateId: Date.now() }}>
         {
           (startAssessment, { data: { prepareAssessment } = {} } = {}) => {
             if (!prepareAssessment) {
               return <PrepareAssessment startAssessment={startAssessment} />
             }
-            return <Query query={GET_ASSESSMENT_QUERY} variables={{ id }}>
-              {
-                ({ loading, error, data }) => {
-                  if (loading) return <h4>Loading...</h4>
-                  if (error) return <h4>There's an error</h4>
-                  console.log('Assessment', { data });
-                  return <CurrentQuestion
-                    handleSelectedChoice={this.handleSelectedChoice}
-                    selectedChoice={this.state.selectedChoice}
-                    currentQuestion={data.assessment.questions[this.state.currentQuestionIndex]}
-                    submitCurrentChoice={this.submitCurrentChoice(data.assessment.questions)}
-                  />
-                }
-
-              }
-            </Query>
+            setCookie({ name: 'prepareAssessment', value: prepareAssessment })
+            return <QueryAssessment
+              id={prepareAssessment}
+              handleSelectedChoice={this.handleSelectedChoice}
+              selectedChoice={this.state.selectedChoice}
+              currentQuestionIndex={this.state.currentQuestionIndex}
+              submitCurrentChoice={this.submitCurrentChoice}
+            />
           }
         }
-      </Mutation>
+      </Mutation >
     )
   }
 }
