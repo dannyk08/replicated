@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { CurrentQuestionChoices } from '.';
+import './CurrentQuestion.css';
 
 const CurrentQuestion = ({
   currentQuestion,
@@ -9,19 +11,18 @@ const CurrentQuestion = ({
   buttonDisabled,
 }) => {
   return (
-    <div>
-      <h4>{currentQuestion.text}</h4>
-      <p>{currentQuestion.question}</p>
-      <p>{currentQuestion.description}</p>
+    <div className='CurrentQuestion'>
+      <h3 className='title'>{currentQuestion.text}</h3>
+      <p className='sub-title'>{currentQuestion.question}</p>
       <CurrentQuestionChoices
         choices={currentQuestion.choices}
         handleChoice={handleSelectedChoice}
         selectedChoiceId={selectedChoiceId}
       />
-      <button
+      <a
         disabled={buttonDisabled}
         onClick={submitCurrentChoice}
-      >Next</button>
+      >Next</a>
     </div>
   )
 }

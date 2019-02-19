@@ -1,15 +1,16 @@
 import React from 'react';
 
+import './CurrentQuestionChoices.css';
 const CurrentQuestionChoices = ({
   choices,
   handleChoice,
   selectedChoiceId
 }) => {
   return (
-    <div className="choices">
+    <div className="CurrentQuestionChoices">
       {
         choices.map(c => {
-          return <div key={c.id} className='choices-item'>
+          return <div key={c.id} className={`choices-item ${(selectedChoiceId === c.id) && 'selected'}`}>
             <input
               type="radio"
               name={c.id}

@@ -1,0 +1,21 @@
+.CurrentQuestionChoices {}
+
+.CurrentQuestionChoices .choices-item {
+  border: 1px solid lightgray;
+  border-radius: .25rem;
+  margin-bottom: 1rem;
+  display: flex;
+  min-height: 4rem;
+  align-items: center;
+  padding: 0.75rem;
+}
+
+.CurrentQuestionChoices .choices-item.selected {
+  border-color: #5fb2ce;
+  background-color: aliceblue;
+}
+
+.CurrentQuestionChoices .choices-item label {
+  margin-left: .75rem;
+  font-weight: bold;
+}

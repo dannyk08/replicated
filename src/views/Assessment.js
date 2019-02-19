@@ -28,9 +28,10 @@ export default class Assessment extends React.Component {
   }
 
   render() {
-    let { prepareAssessment = null } = getCookie('prepareAssessment')
+    const currentCookie = getCookie('prepareAssessment')
+    let prepareAssessment = currentCookie && currentCookie.prepareAssessment
 
-    if (prepareAssessment) {
+    if (prepareAssessment && prepareAssessment.length) {
       return (
         <QueryAssessment
           id={prepareAssessment}
@@ -43,7 +44,7 @@ export default class Assessment extends React.Component {
     }
 
     return (
-      <Mutation mutation={PREPARE_ASSESSMENT_MUTATION} variables={{ templateId: Date.now() }}>
+      <Mutation mutation={PREPARE_ASSESSMENT_MUTATION} variables={{ templateId: Date.now().toString() }}>
         {
           (startAssessment, { data: { prepareAssessment } = {} } = {}) => {
             if (!prepareAssessment) {

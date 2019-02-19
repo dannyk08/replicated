@@ -12,8 +12,8 @@ export function getCookie(name = '') {
     .split(';')
     .reduce((p, c) => {
       const [key, value] = c.split('=').map(c => c.trim())
-      return [...p, { [key]: value }]
+      return [...p, { [key]: (value && value.length) ? value : '' }]
     }, [])
-    .find(c => c && !!c[name])
+    .find(c => c && !!c[name]) || null
 }
 
