@@ -17,9 +17,9 @@ const Router = () => {
   return <BrowserRouter>
     <React.Fragment>
       <Route path="/completed-assessment" render={(props) => (
-        !currentCookie && currentCookie.prepareAssessment ?
-          (<Redirect to="/" />) :
-          (<CompletedSurvey {...props} />)
+        currentCookie && currentCookie.prepareAssessment ?
+          (<CompletedSurvey {...props} />) :
+          (<Redirect to="/" />)
       )} />
       <Route exact path="/" component={Assessment} />
     </React.Fragment>

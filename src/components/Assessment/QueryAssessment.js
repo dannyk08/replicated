@@ -10,7 +10,8 @@ const QueryAssessment = ({
   handleSelectedChoice,
   selectedChoiceId,
   currentQuestionIndex,
-  submitCurrentChoice
+  submitCurrentChoice,
+  history,
 }) => {
 
   return <Query query={GET_ASSESSMENT_QUERY} variables={{ id }}>
@@ -35,7 +36,11 @@ const QueryAssessment = ({
               if (loading) return <h4>Loading...</h4>
               if (error) return <h4>There's an error</h4>
 
-              // console.log(data);
+              if (data && data.updateAssessment.isCompleted) {
+                history.push('/completed-assessment')
+                return null
+              }
+
               return <CurrentQuestion
                 handleSelectedChoice={handleSelectedChoice}
                 selectedChoiceId={selectedChoiceId}

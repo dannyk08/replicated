@@ -35,7 +35,7 @@ export default class Assessment extends React.Component {
     if (prepareAssessment && prepareAssessment.length) {
       return (
         <QueryAssessment
-          rcHistory={history}
+          history={history}
           id={prepareAssessment}
           handleSelectedChoice={this.handleSelectedChoice}
           selectedChoiceId={this.state.selectedChoice}
@@ -54,7 +54,7 @@ export default class Assessment extends React.Component {
             }
             setCookie({ name: 'prepareAssessment', value: prepareAssessment })
             return <QueryAssessment
-              rcHistory={history}
+              history={history}
               id={prepareAssessment}
               handleSelectedChoice={this.handleSelectedChoice}
               selectedChoiceId={this.state.selectedChoice}
