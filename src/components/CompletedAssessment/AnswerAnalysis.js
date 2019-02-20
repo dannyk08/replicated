@@ -2,14 +2,14 @@ import React from 'react';
 
 import { AnswerAnalysisItem } from '.';
 
-export default class AnswerAnalysis extends React.Component {
-  render() {
-    return <div className="AnswerAnalysis">
-      {
-        [].map((answer, index) => {
-          return <AnswerAnalysisItem key={index * Date.now()} answer={answer} />
-        })
-      }
-    </div>
-  }
+export default function AnswerAnalysis({
+  assessmentQuestions
+}) {
+  return <div className="AnswerAnalysis">
+    {
+      assessmentQuestions.map(assessment => {
+        return <AnswerAnalysisItem key={assessment.id} assessment={assessment} />
+      })
+    }
+  </div>
 }

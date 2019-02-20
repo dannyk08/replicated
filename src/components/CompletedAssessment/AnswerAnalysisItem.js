@@ -1,29 +1,30 @@
 import React from 'react';
-// import { scoreMap } from '../utils/scoreMapping';
 
-export default class AnswerAnalysisItem extends React.Component {
-  render() {
-    const {
-      assessment,
-      score,
-      answer,
-      suggestion,
-      learnMore: {
-        url,
-        text,
-      },
-    } = this.props.answer
+import { scoreMap } from './../../helpers';
+import { Button } from '../Global';
+import './AnswerAnalysisItem.css';
 
-    return <div className="AnswerAnalysisItem">
-      <p>x</p>
-      {/* <h3 className="title">{assessment} <span>{scoreMap[score]}</span> </h3> */}
+export default function AnswerAnalysisItem({
+  assessment
+}) {
+  const grade = assessment.choices.find(c => c.isSelected)
 
-      <div className="sub-title">
-        <p>Your Answer</p>
-        <h4>{answer}</h4>
-      </div>
-      <h3>{suggestion}</h3>
-      <a>{text} ></a>
+  return <div className="AnswerAnalysisItem">
+    <div className="analysis-logo">
+      <p>Icon</p>
     </div>
-  }
+    <div className="analysis-details">
+      <h3 className="title">{assessment.text} <span>{scoreMap[grade.weight]}</span> </h3>
+
+      <p className='sub-title'>Your Answer:</p>
+      <p className='sub-title'>{grade.text}</p>
+
+      <p className='sub-title'>{assessment.description}</p>
+      <Button
+        className={'button secondary-button-action'}
+      >
+        Learn More >
+    </Button>
+    </div>
+  </div >
 }

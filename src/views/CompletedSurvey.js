@@ -1,4 +1,6 @@
 import React from 'react';
+
+import './CompletedSurvey.css'
 import { ScoreGraph, ScoreAnalysis, AnswerAnalysis } from '../components';
 import { getCookie } from '../helpers';
 import { Query } from 'react-apollo';
@@ -40,9 +42,9 @@ export default class CompletedSurvey extends React.Component {
                 <ScoreAnalysis assessmentQuestions={data.assessment.questions} />
               </div>
 
-              {/* <div className="deep-answer-analysis">
-                <AnswerAnalysis />
-              </div> */}
+              <div className="deep-answer-analysis">
+                <AnswerAnalysis assessmentQuestions={data.assessment.questions} />
+              </div>
             </React.Fragment>
           }
         }

@@ -1,0 +1,24 @@
+.score-explanation-container {
+  display: flex;
+  justify-content: center;
+}
+
+.score-explanation-container .score-graph,
+.score-explanation-container .score-explanation {
+  flex: 1;
+}
+
+.score-explanation-container .score-graph {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-analysis {
+  margin-top: 2rem;
+}
+
+.score-analysis h3,
+.score-analysis h4 {
+  text-align: center;
+}
