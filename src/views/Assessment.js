@@ -28,12 +28,14 @@ export default class Assessment extends React.Component {
   }
 
   render() {
+    const { history } = this.props
     const currentCookie = getCookie('prepareAssessment')
     let prepareAssessment = currentCookie && currentCookie.prepareAssessment
 
     if (prepareAssessment && prepareAssessment.length) {
       return (
         <QueryAssessment
+          rcHistory={history}
           id={prepareAssessment}
           handleSelectedChoice={this.handleSelectedChoice}
           selectedChoiceId={this.state.selectedChoice}
@@ -52,6 +54,7 @@ export default class Assessment extends React.Component {
             }
             setCookie({ name: 'prepareAssessment', value: prepareAssessment })
             return <QueryAssessment
+              rcHistory={history}
               id={prepareAssessment}
               handleSelectedChoice={this.handleSelectedChoice}
               selectedChoiceId={this.state.selectedChoice}
