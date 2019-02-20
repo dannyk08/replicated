@@ -2,6 +2,7 @@ import React from 'react';
 
 import { CurrentQuestionChoices } from '.';
 import './CurrentQuestion.css';
+import { Button } from '../Global';
 
 const CurrentQuestion = ({
   currentQuestion,
@@ -19,10 +20,11 @@ const CurrentQuestion = ({
         handleChoice={handleSelectedChoice}
         selectedChoiceId={selectedChoiceId}
       />
-      <a
+      <Button
+        className='button bare-button cta-button'
         disabled={buttonDisabled}
         onClick={submitCurrentChoice}
-      >Next</a>
+      >Next ></Button>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { scoreMap } from '../utils/scoreMapping';
+// import { scoreMap } from '../utils/scoreMapping';
 
 export default class AnswerAnalysisItem extends React.Component {
   render() {
@@ -16,7 +16,7 @@ export default class AnswerAnalysisItem extends React.Component {
 
     return <div className="AnswerAnalysisItem">
       <p>x</p>
-      <h3 className="title">{assessment} <span>{scoreMap[score]}</span> </h3>
+      {/* <h3 className="title">{assessment} <span>{scoreMap[score]}</span> </h3> */}
 
       <div className="sub-title">
         <p>Your Answer</p>

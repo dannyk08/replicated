@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './CurrentQuestionChoices.css';
+import { QuestionOption } from '../Global';
 const CurrentQuestionChoices = ({
   choices,
   handleChoice,
@@ -9,18 +10,13 @@ const CurrentQuestionChoices = ({
   return (
     <div className="CurrentQuestionChoices">
       {
-        choices.map(c => {
-          return <div key={c.id} className={`choices-item ${(selectedChoiceId === c.id) && 'selected'}`}>
-            <input
-              type="radio"
-              name={c.id}
-              id={c.id}
-              checked={selectedChoiceId === c.id}
-              onChange={handleChoice}
-              value={c.id}
-            />
-            <label htmlFor={c.id}>{c.text}</label>
-          </div>
+        choices.map(option => {
+          return <QuestionOption
+            selected={selectedChoiceId === option.id}
+            handleChoice={handleChoice}
+            option={option}
+            key={option.id}
+          />
         })
       }
     </div>

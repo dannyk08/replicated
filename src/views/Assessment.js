@@ -9,15 +9,15 @@ export default class Assessment extends React.Component {
   constructor(props) {
     super(props)
     this.submitCurrentChoice = (questions) => this._submitCurrentChoice.bind(this, questions)
-    this.handleSelectedChoice = this.handleSelectedChoice.bind(this)
+    this.handleSelectedChoice = (selectedChoice) => this._handleSelectedChoice.bind(this, selectedChoice)
     this.state = {
       currentQuestionIndex: 0,
       selectedChoice: null
     }
   }
 
-  handleSelectedChoice(e) {
-    this.setState({ selectedChoice: e.target.value })
+  _handleSelectedChoice(selectedChoice) {
+    this.setState({ selectedChoice })
   }
 
   _submitCurrentChoice(questions) {

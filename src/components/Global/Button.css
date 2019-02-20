@@ -1,0 +1,15 @@
+.button {
+  min-height: 2rem;
+  min-width: 3rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.bare-button {
+  border: none;
+}
+
+.cta-button { 
+  color: red;
+}

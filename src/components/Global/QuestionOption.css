@@ -1,0 +1,25 @@
+.question-option {
+  border: 1px solid lightgray;
+  border-radius: .25rem;
+  margin-bottom: 1rem;
+  display: flex;
+  min-height: 4rem;
+  align-items: center;
+  padding: 0.75rem;
+  text-align: left;
+  cursor: pointer;
+  font-size: .9rem;
+}
+
+.question-option:last-of-type {
+  margin-bottom: 0;
+}
+
+.question-option.selected {
+  border-color: #5fb2ce;
+  background-color: aliceblue;
+}
+
+.question-option .letter-label {
+  margin-right: .75rem;
+}

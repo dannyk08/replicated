@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './ScoreAnalysisItem.css';
-import { scoreMap } from './../utils/scoreMapping';
+// import { scoreMap } from './../utils/scoreMapping';
 
 export default class ScoreAnalysisItem extends React.Component {
   render() {
@@ -16,7 +16,7 @@ export default class ScoreAnalysisItem extends React.Component {
       <h5>{assessment}</h5>
       <div>
         <p>logo</p>
-        <h4>{scoreMap[score]}</h4>
+        {/* <h4>{scoreMap[score]}</h4> */}
       </div>
     </div>
   }
