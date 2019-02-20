@@ -21,7 +21,7 @@ const CurrentQuestion = ({
         selectedChoiceId={selectedChoiceId}
       />
       <Button
-        className='button bare-button cta-button'
+        className='button primary-button-action'
         disabled={buttonDisabled}
         onClick={submitCurrentChoice}
       >Next ></Button>

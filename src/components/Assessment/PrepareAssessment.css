@@ -1,0 +1,13 @@
+.PrepareAssessment {
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.PrepareAssessment .button {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 15rem;
+}
