@@ -1,0 +1,23 @@
+.button {
+  min-height: 2rem;
+  min-width: 3rem;
+  max-height: 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: white;
+  border: none;
+}
+
+.button:disabled {
+  color: gray;
+  cursor: not-allowed;
+}
+
+.primary-button-action { 
+  color: red;
+}
+
+.secondary-button-action { 
+  color: lightblue;
+}

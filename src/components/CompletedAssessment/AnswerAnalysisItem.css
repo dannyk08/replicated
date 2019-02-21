@@ -1,0 +1,16 @@
+.AnswerAnalysisItem {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.AnswerAnalysisItem .analysis-logo {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.AnswerAnalysisItem .analysis-details {
+  flex: 1;
+}

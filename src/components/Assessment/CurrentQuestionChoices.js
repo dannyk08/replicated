@@ -1,24 +1,22 @@
 import React from 'react';
 
+import './CurrentQuestionChoices.css';
+import { QuestionOption } from '../Global';
 const CurrentQuestionChoices = ({
   choices,
   handleChoice,
-  selectedChoice
+  selectedChoiceId
 }) => {
   return (
-    <div className="choices">
+    <div className="CurrentQuestionChoices">
       {
-        choices.map(c => {
-          return <div key={c.id} className='choices-item'>
-            <input
-              type="radio"
-              name={c.id}
-              checked={selectedChoice === c.id}
-              onChange={handleChoice}
-              value={c.id}
-            />
-            <label id={c.id}>{c.text}</label>
-          </div>
+        choices.map(option => {
+          return <QuestionOption
+            selected={selectedChoiceId === option.id}
+            handleChoice={handleChoice}
+            option={option}
+            key={option.id}
+          />
         })
       }
     </div>

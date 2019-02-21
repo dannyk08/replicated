@@ -4,7 +4,7 @@ import ApolloClient from 'apollo-boost';
 
 import './App.css';
 import { Navigation } from './components';
-import { CompletedSurvey, Assessment } from './views';
+import Router from './Router';
 
 const client = new ApolloClient({
   uri: 'https://assessment.staging.enterprisegrade.io/graphql'
@@ -17,10 +17,8 @@ class App extends Component {
         <Navigation />
 
         <div className="container">
-          {/* TODO: make this a route */}
-          {/* <CompletedSurvey /> */}
           <ApolloProvider client={client}>
-            <Assessment />
+            <Router />
           </ApolloProvider>
         </div>
       </div>

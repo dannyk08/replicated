@@ -1,0 +1,25 @@
+.letter-label {
+  display: inline-flex;
+  background: antiquewhite;
+  font-size: 0.9rem;
+  vertical-align: middle;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  min-height: 1.5rem;
+  min-width: 1.5rem;
+  max-width: 1.5rem;
+  max-height: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.letter-label.light-blue {
+  color: rgb(96, 145, 193);
+  background-color: rgb(228, 238, 246);
+}
+
+.letter-label.light-blue.inverted {
+  background-color: rgb(96, 145, 193);
+  color: rgb(228, 238, 246);
+}

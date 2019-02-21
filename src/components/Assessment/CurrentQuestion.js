@@ -1,23 +1,30 @@
 import React from 'react';
+
 import { CurrentQuestionChoices } from '.';
+import './CurrentQuestion.css';
+import { Button } from '../Global';
 
 const CurrentQuestion = ({
   currentQuestion,
   submitCurrentChoice,
   handleSelectedChoice,
-  selectedChoice
+  selectedChoiceId,
+  buttonDisabled,
 }) => {
   return (
-    <div>
-      <h4>{currentQuestion.text}</h4>
-      <p>{currentQuestion.question}</p>
-      <p>{currentQuestion.description}</p>
+    <div className='CurrentQuestion'>
+      <h3 className='title'>{currentQuestion.text}</h3>
+      <p className='sub-title'>{currentQuestion.question}</p>
       <CurrentQuestionChoices
         choices={currentQuestion.choices}
         handleChoice={handleSelectedChoice}
-        selectedChoice={selectedChoice}
+        selectedChoiceId={selectedChoiceId}
       />
-      <button onClick={submitCurrentChoice}>submit</button>
+      <Button
+        className='button primary-button-action'
+        disabled={buttonDisabled}
+        onClick={submitCurrentChoice}
+      >Next ></Button>
     </div>
   )
 }
